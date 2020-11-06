@@ -1,0 +1,1128 @@
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:building train pos history csv...
+INFO:root:building validation pos history csv...
+INFO:root:building test pos history csv...
+INFO:root:building train neg history csv...
+INFO:root:building validation neg history csv...
+INFO:root:building test neg history csv...
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7ffc93890ba8>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:Prepare Test Data...
+INFO:root:Model # of features 2
+INFO:root:Model # of feature dims 2627
+INFO:root:NLRRec: {'feature_num': 2, 'item_num': 1683, 'l2_bias': 0, 'label_max': 1, 'label_min': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'or_and': 1, 'r_length': 0.0001, 'r_logic': 1e-06, 'random_seed': 2018, 'seq_rec': 1, 'sim_alpha': 0, 'sim_scale': 10, 'v_vector_size': 64, 'variable_num': -1}
+INFO:root:# of params: 169793
+INFO:root:BaseRunner: {'batch_size': 128, 'check_epoch': 1, 'dropout': 0.2, 'early_stop': 0, 'epoch': 100, 'eval_batch_size': 16384, 'grad_clip': 10, 'l2': 0.0001, 'l2_bias': 0, 'l2s': 0.0, 'lr': 0.001, 'metrics': 'ndcg@10,precision@1', 'optimizer': 'Adam', 'pre_gpu': 0}
+INFO:root:Test Before Training: train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 ndcg@10,precision@1
+INFO:root:Init: 	 train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 [15.3 s] ndcg@10,precision@1
+INFO:root:Optimizer: Adam
+INFO:root:
+
+INFO:root:prediction	(134,)
+[ 2.1476963  4.579612   3.5420558 ...  2.1802971  2.1252184 -2.0804334]
+
+INFO:root:label	(67,)
+[1. 1. 1. ... 1. 1. 1.]
+
+INFO:root:true	(1, 64)
+[[0.48802704 0.62527764 0.23875442 ... 0.5415067  0.3457441  0.8599477 ]]
+
+INFO:root:r_length	()
+270.04794
+
+INFO:root:r_not_true	()
+0.64361954
+
+INFO:root:r_not_self	()
+1166.6852
+
+INFO:root:r_not_not_self	()
+1790.4803
+
+INFO:root:r_and_true	()
+424.31332
+
+INFO:root:r_and_false	()
+0.48419523
+
+INFO:root:r_and_self	()
+925.18365
+
+INFO:root:r_and_not_self	()
+0.51239765
+
+INFO:root:r_or_true	()
+1.0476542
+
+INFO:root:r_or_false	()
+579.8089
+
+INFO:root:r_or_self	()
+664.72894
+
+INFO:root:r_or_not_self	()
+372.11807
+
+INFO:root:r_loss	()
+0.0329308
+
+INFO:root:mean loss = 46.7993, l2 = 0.0045, 0.0000
+INFO:root:Epoch     1 [192.2 s]	 train= 46.7993,2.0806 validation= 0.2317,0.0754 test= 0.2239,0.0761 [13.5 s] ndcg@10,precision@1
+INFO:root:Save model to ../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt
+INFO:root:
+
+INFO:root:prediction	(134,)
+[ 3.0788965  3.1112885  3.541893  ...  1.2886145 -3.3268137  1.402532 ]
+
+INFO:root:label	(67,)
+[1. 1. 1. ... 1. 1. 1.]
+
+INFO:root:true	(1, 64)
+[[0.48802704 0.62527764 0.23875442 ... 0.5415067  0.3457441  0.8599477 ]]
+
+INFO:root:r_length	()
+397.37256
+
+INFO:root:r_not_true	()
+0.6022487
+
+INFO:root:r_not_self	()
+2130.2676
+
+INFO:root:r_not_not_self	()
+1523.3116
+
+INFO:root:r_and_true	()
+257.5961
+
+INFO:root:r_and_false	()
+0.69039434
+
+INFO:root:r_and_self	()
+942.5067
+
+INFO:root:r_and_not_self	()
+0.8032012
+
+INFO:root:r_or_true	()
+1.2097389
+
+INFO:root:r_or_false	()
+248.82544
+
+INFO:root:r_or_self	()
+451.05905
+
+INFO:root:r_or_not_self	()
+563.09326
+
+INFO:root:r_loss	()
+0.04585722
+
+INFO:root:mean loss = 39.1105, l2 = 0.0077, 0.0000
+INFO:root:Epoch     2 [217.9 s]	 train= 39.1105,2.1118 validation= 0.2303,0.0787 test= 0.2200,0.0718 [11.7 s] ndcg@10,precision@1
+INFO:root:
+
+INFO:root:prediction	(134,)
+[ 2.6475797   4.862083    2.2741895  ...  0.81658053  1.8973982
+ -1.9704494 ]
+
+INFO:root:label	(67,)
+[1. 1. 1. ... 1. 1. 1.]
+
+INFO:root:true	(1, 64)
+[[0.48802704 0.62527764 0.23875442 ... 0.5415067  0.3457441  0.8599477 ]]
+
+INFO:root:r_length	()
+616.8706
+
+INFO:root:r_not_true	()
+0.6388805
+
+INFO:root:r_not_self	()
+2462.9006
+
+INFO:root:r_not_not_self	()
+1415.6621
+
+INFO:root:r_and_true	()
+439.38458
+
+INFO:root:r_and_false	()
+1.474992
+
+INFO:root:r_and_self	()
+910.71375
+
+INFO:root:r_and_not_self	()
+1.4850996
+
+INFO:root:r_or_true	()
+21.505295
+
+INFO:root:r_or_false	()
+336.81226
+
+INFO:root:r_or_self	()
+448.36597
+
+INFO:root:r_or_not_self	()
+318.80325
+
+INFO:root:r_loss	()
+0.0680448
+
+INFO:root:mean loss = 38.0930, l2 = 0.0107, 0.0000
+INFO:root:Epoch     3 [188.8 s]	 train= 38.0930,2.1086 validation= 0.2363,0.0927 test= 0.2267,0.0750 [11.8 s] ndcg@10,precision@1
+INFO:root:Save model to ../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt
+INFO:root:
+
+INFO:root:prediction	(134,)
+[ 2.6123664   3.0465317   3.1741526  ...  1.493828   -0.81286603
+ -2.5985336 ]
+
+INFO:root:label	(67,)
+[1. 1. 1. ... 1. 1. 1.]
+
+INFO:root:true	(1, 64)
+[[0.48802704 0.62527764 0.23875442 ... 0.5415067  0.3457441  0.8599477 ]]
+
+INFO:root:r_length	()
+634.751
+
+INFO:root:r_not_true	()
+0.18585522
+
+INFO:root:r_not_self	()
+2450.9666
+
+INFO:root:r_not_not_self	()
+529.55286
+
+INFO:root:r_and_true	()
+565.2776
+
+INFO:root:r_and_false	()
+47.64024
+
+INFO:root:r_and_self	()
+1296.203
+
+INFO:root:r_and_not_self	()
+46.673985
+
+INFO:root:r_or_true	()
+5.9354687
+
+INFO:root:r_or_false	()
+243.38849
+
+INFO:root:r_or_self	()
+278.3805
+
+INFO:root:r_or_not_self	()
+833.2905
+
+INFO:root:r_loss	()
+0.06977259
+
+INFO:root:mean loss = 37.0430, l2 = 0.0139, 0.0000
+INFO:root:Epoch     4 [200.9 s]	 train= 37.0430,2.2083 validation= 0.2295,0.0797 test= 0.2243,0.0782 [14.4 s] ndcg@10,precision@1
+INFO:root:
+
+INFO:root:prediction	(134,)
+[ 1.8870423   2.6929574   1.5158778  ...  2.2384021  -0.12762228
+ -4.5103383 ]
+
+INFO:root:label	(67,)
+[1. 1. 1. ... 1. 1. 1.]
+
+INFO:root:true	(1, 64)
+[[0.48802704 0.62527764 0.23875442 ... 0.5415067  0.3457441  0.8599477 ]]
+
+INFO:root:r_length	()
+670.1599
+
+INFO:root:r_not_true	()
+0.50897074
+
+INFO:root:r_not_self	()
+1260.6208
+
+INFO:root:r_not_not_self	()
+1947.9554
+
+INFO:root:r_and_true	()
+700.57227
+
+INFO:root:r_and_false	()
+1.0280459
+
+INFO:root:r_and_self	()
+1254.251
+
+INFO:root:r_and_not_self	()
+1.0125087
+
+INFO:root:r_or_true	()
+5.8384423
+
+INFO:root:r_or_false	()
+494.3227
+
+INFO:root:r_or_self	()
+655.65497
+
+INFO:root:r_or_not_self	()
+771.86005
+
+INFO:root:r_loss	()
+0.07410961
+
+INFO:root:mean loss = 36.8260, l2 = 0.0164, 0.0000
+INFO:root:Epoch     5 [172.3 s]	 train= 36.8260,1.9340 validation= 0.2354,0.0851 test= 0.2288,0.0836 [10.8 s] ndcg@10,precision@1
+INFO:root:
+
+INFO:root:prediction	(134,)
+[ 3.3128798   2.7401104   4.272059   ...  0.75421757 -3.489183
+  2.2059016 ]
+
+INFO:root:label	(67,)
+[1. 1. 1. ... 1. 1. 1.]
+
+INFO:root:true	(1, 64)
+[[0.48802704 0.62527764 0.23875442 ... 0.5415067  0.3457441  0.8599477 ]]
+
+INFO:root:r_length	()
+696.2525
+
+INFO:root:r_not_true	()
+0.3390297
+
+INFO:root:r_not_self	()
+2428.2021
+
+INFO:root:r_not_not_self	()
+469.45255
+
+INFO:root:r_and_true	()
+399.83994
+
+INFO:root:r_and_false	()
+2.2986817
+
+INFO:root:r_and_self	()
+1069.9814
+
+INFO:root:r_and_not_self	()
+2.3759685
+
+INFO:root:r_or_true	()
+5.5749826
+
+INFO:root:r_or_false	()
+649.0682
+
+INFO:root:r_or_self	()
+681.95953
+
+INFO:root:r_or_not_self	()
+857.1825
+
+INFO:root:r_loss	()
+0.07619153
+
+INFO:root:mean loss = 36.1211, l2 = 0.0189, 0.0000
+INFO:root:Epoch     6 [254.6 s]	 train= 36.1211,1.7551 validation= 0.2391,0.0808 test= 0.2320,0.0772 [9.8 s] ndcg@10,precision@1
+INFO:root:Save model to ../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt
+INFO:root:Early stop manually
+INFO:root:Best Iter(validation)=     6	 train= 36.1211,1.7551 valid= 0.2391,0.0808 test= 0.2320,0.0772 [1313.9 s] ndcg@10,precision@1
+INFO:root:Best Iter(test)=     6	 train= 36.1211,1.7551 valid= 0.2391,0.0808 test= 0.2320,0.0772 [1313.9 s] ndcg@10,precision@1
+INFO:root:Load model from ../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP', 'optimizer': 'Adam', 'lr': 0.001, 'dataset': 'ml100k01-1-5', 'metric': ['n', 'd', 'c', 'g', '@', '1', '0', ',', 'p', 'r', 'e', 'c', 'i', 's', 'i', 'o', 'n', '@', '1'], 'max_his': 10, 'sparse_his': 0, 'neg_his': 1, 'l2': 0.0001, 'r_logic': 1e-06, 'r_length': 0.0001}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7f8220990d30>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP', 'optimizer': 'Adam', 'lr': 0.001, 'dataset': 'ml100k01-1-5', 'max_his': 10, 'sparse_his': 0, 'neg_his': 1, 'l2': 0.0001, 'r_logic': 1e-06, 'r_length': 0.0001}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7f81a92b7dd8>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:Prepare Test Data...
+INFO:root:Model # of features 2
+INFO:root:Model # of feature dims 2627
+INFO:root:NLRRec: {'feature_num': 2, 'item_num': 1683, 'l2_bias': 0, 'label_max': 1, 'label_min': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'or_and': 1, 'r_length': 0.0001, 'r_logic': 1e-06, 'random_seed': 2018, 'seq_rec': 1, 'sim_alpha': 0, 'sim_scale': 10, 'v_vector_size': 64, 'variable_num': -1}
+INFO:root:# of params: 169793
+INFO:root:BaseRunner: {'batch_size': 128, 'check_epoch': 1, 'dropout': 0.2, 'early_stop': 0, 'epoch': 100, 'eval_batch_size': 16384, 'grad_clip': 10, 'l2': 0.0001, 'l2_bias': 0, 'l2s': 0.0, 'lr': 0.001, 'metrics': 'ndcg@10,precision@1', 'optimizer': 'Adam', 'pre_gpu': 0}
+INFO:root:Test Before Training: train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 ndcg@10,precision@1
+INFO:root:Init: 	 train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 [14.5 s] ndcg@10,precision@1
+INFO:root:Optimizer: Adam
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP', 'optimizer': 'Adam', 'lr': 0.001, 'dataset': 'ml100k01-1-5', 'max_his': 10, 'sparse_his': 0, 'neg_his': 1, 'l2': 0.0001, 'r_logic': 1e-06, 'r_length': 0.0001}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP', 'optimizer': 'Adam', 'lr': 0.001, 'dataset': 'ml100k01-1-5', 'max_his': 10, 'sparse_his': 0, 'neg_his': 1, 'l2': 0.0001, 'r_logic': 1e-06, 'r_length': 0.0001}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:building train pos history csv...
+INFO:root:building validation pos history csv...
+INFO:root:building test pos history csv...
+INFO:root:building train neg history csv...
+INFO:root:building validation neg history csv...
+INFO:root:building test neg history csv...
+INFO:root:load history csv...
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7f9e636f2d68>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:Prepare Test Data...
+INFO:root:Model # of features 2
+INFO:root:Model # of feature dims 2627
+INFO:root:NLRRec: {'feature_num': 2, 'item_num': 1683, 'l2_bias': 0, 'label_max': 1, 'label_min': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'or_and': 1, 'r_length': 0.0001, 'r_logic': 1e-06, 'random_seed': 2018, 'seq_rec': 1, 'sim_alpha': 0, 'sim_scale': 10, 'v_vector_size': 64, 'variable_num': -1}
+INFO:root:# of params: 169793
+INFO:root:BaseRunner: {'batch_size': 128, 'check_epoch': 1, 'dropout': 0.2, 'early_stop': 0, 'epoch': 100, 'eval_batch_size': 16384, 'grad_clip': 10, 'l2': 0.0001, 'l2_bias': 0, 'l2s': 0.0, 'lr': 0.001, 'metrics': 'ndcg@10,precision@1', 'optimizer': 'Adam', 'pre_gpu': 0}
+INFO:root:Test Before Training: train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 ndcg@10,precision@1
+INFO:root:Init: 	 train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 [13.8 s] ndcg@10,precision@1
+INFO:root:Optimizer: Adam
+INFO:root:Early stop manually
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7fd346ee5d68>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7fa0fb6c6dd8>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7fdf4d6e9d30>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:Prepare Test Data...
+INFO:root:Model # of features 2
+INFO:root:Model # of feature dims 2627
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7fd27a02fda0>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:Prepare Test Data...
+INFO:root:Model # of features 2
+INFO:root:Model # of feature dims 2627
+INFO:root:NLRRec: {'feature_num': 2, 'item_num': 1683, 'l2_bias': 0, 'label_max': 1, 'label_min': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'or_and': 1, 'r_length': 0.0001, 'r_logic': 1e-06, 'random_seed': 2018, 'seq_rec': 1, 'sim_alpha': 0, 'sim_scale': 10, 'v_vector_size': 64, 'variable_num': -1}
+INFO:root:# of params: 169793
+INFO:root:BaseRunner: {'batch_size': 128, 'check_epoch': 1, 'dropout': 0.2, 'early_stop': 0, 'epoch': 100, 'eval_batch_size': 16384, 'grad_clip': 10, 'l2': 0.0001, 'l2_bias': 0, 'l2s': 0.0, 'lr': 0.001, 'metrics': 'ndcg@10,precision@1', 'optimizer': 'Adam', 'pre_gpu': 0}
+INFO:root:Test Before Training: train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 ndcg@10,precision@1
+INFO:root:Init: 	 train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 [15.3 s] ndcg@10,precision@1
+INFO:root:Optimizer: Adam
+INFO:root:Early stop manually
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7f9ec65c4da0>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:Prepare Test Data...
+INFO:root:Model # of features 2
+INFO:root:Model # of feature dims 2627
+INFO:root:NLRRec: {'feature_num': 2, 'item_num': 1683, 'l2_bias': 0, 'label_max': 1, 'label_min': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'or_and': 1, 'r_length': 0.0001, 'r_logic': 1e-06, 'random_seed': 2018, 'seq_rec': 1, 'sim_alpha': 0, 'sim_scale': 10, 'v_vector_size': 64, 'variable_num': -1}
+INFO:root:# of params: 169793
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7fad53fb1d68>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:Prepare Test Data...
+INFO:root:Model # of features 2
+INFO:root:Model # of feature dims 2627
+INFO:root:NLRRec: {'feature_num': 2, 'item_num': 1683, 'l2_bias': 0, 'label_max': 1, 'label_min': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'or_and': 1, 'r_length': 0.0001, 'r_logic': 1e-06, 'random_seed': 2018, 'seq_rec': 1, 'sim_alpha': 0, 'sim_scale': 10, 'v_vector_size': 64, 'variable_num': -1}
+INFO:root:# of params: 169793
+INFO:root:BaseRunner: {'batch_size': 128, 'check_epoch': 1, 'dropout': 0.2, 'early_stop': 0, 'epoch': 100, 'eval_batch_size': 16384, 'grad_clip': 10, 'l2': 0.0001, 'l2_bias': 0, 'l2s': 0.0, 'lr': 0.001, 'metrics': 'ndcg@10,precision@1', 'optimizer': 'Adam', 'pre_gpu': 0}
+INFO:root:Test Before Training: train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 ndcg@10,precision@1
+INFO:root:Init: 	 train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 [58.8 s] ndcg@10,precision@1
+INFO:root:Optimizer: Adam
+INFO:root:Early stop manually
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7fa30e7aecf8>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:Prepare Test Data...
+INFO:root:Model # of features 2
+INFO:root:Model # of feature dims 2627
+INFO:root:NLRRec: {'feature_num': 2, 'item_num': 1683, 'l2_bias': 0, 'label_max': 1, 'label_min': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'or_and': 1, 'r_length': 0.0001, 'r_logic': 1e-06, 'random_seed': 2018, 'seq_rec': 1, 'sim_alpha': 0, 'sim_scale': 10, 'v_vector_size': 64, 'variable_num': -1}
+INFO:root:# of params: 169793
+INFO:root:BaseRunner: {'batch_size': 128, 'check_epoch': 1, 'dropout': 0.2, 'early_stop': 0, 'epoch': 100, 'eval_batch_size': 16384, 'grad_clip': 10, 'l2': 0.0001, 'l2_bias': 0, 'l2s': 0.0, 'lr': 0.001, 'metrics': 'ndcg@10,precision@1', 'optimizer': 'Adam', 'pre_gpu': 0}
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7fae328efe10>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:Prepare Test Data...
+INFO:root:Model # of features 2
+INFO:root:Model # of feature dims 2627
+INFO:root:NLRRec: {'feature_num': 2, 'item_num': 1683, 'l2_bias': 0, 'label_max': 1, 'label_min': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'or_and': 1, 'r_length': 0.0001, 'r_logic': 1e-06, 'random_seed': 2018, 'seq_rec': 1, 'sim_alpha': 0, 'sim_scale': 10, 'v_vector_size': 64, 'variable_num': -1}
+INFO:root:# of params: 169793
+INFO:root:BaseRunner: {'batch_size': 128, 'check_epoch': 1, 'dropout': 0.2, 'early_stop': 0, 'epoch': 100, 'eval_batch_size': 16384, 'grad_clip': 10, 'l2': 0.0001, 'l2_bias': 0, 'l2s': 0.0, 'lr': 0.001, 'metrics': 'ndcg@10,precision@1', 'optimizer': 'Adam', 'pre_gpu': 0}
+INFO:root:Test Before Training: train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 ndcg@10,precision@1
+INFO:root:Init: 	 train= 1.0000,1.0000 validation= 0.0334,0.0054 test= 0.0342,0.0032 [13.9 s] ndcg@10,precision@1
+INFO:root:Optimizer: Adam
+INFO:root:Early stop manually
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'NLRRec', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicRecDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.txt', 'result_file': '../result/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k01-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'variable_num': -1, 'seq_rec': 1, 'or_and': 1, 'v_vector_size': 64, 'r_logic': 1e-06, 'r_length': 0.0001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLRRec/11_NLRRec_ml100k01-1-5_2018_all0_bat128_dro1_dro1_dro0.2_ear0_epo100_gra10_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_neg0_neg1_optAdam_ora1_rle0.0001_rlo1e-06_sam1.0_seq1_shu0_sim0_sim10_spa0_sup0_tes100_tra1_vve64_var-1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@10,precision@1', 'pre_gpu': 0, 'shuffle_his': 0, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 0, 'sparse_his': 0, 'sup_his': 0, 'drop_first': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '1', '--model_name', 'NLRRec']
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: NLRRec
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicRecDP
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k01-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load user csv...
+INFO:root:load item csv...
+INFO:root:load train csv...
+INFO:root:size of train: 94780
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:load validation csv...
+INFO:root:size of validation: 2253
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:load test csv...
+INFO:root:size of test: 2967
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:load history csv...
+INFO:root:label: 0-1
+INFO:root:# of users: 944
+INFO:root:# of items: 1683
+INFO:root:# of user features: 3
+INFO:root:# of item features: 20
+INFO:root:# of context features: 0
+INFO:root:# of features: 23
+INFO:root:Save dataset info to ../dataset/ml100k01-1-5/ml100k01-1-5.info.json
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 53514, 0: 41266}
+INFO:root:validation label: {0: 1325, 1: 928}
+INFO:root:test label: {0: 2034, 1: 933}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 53514
+INFO:root:size of validation: 928
+INFO:root:size of test: 933
+INFO:root:ProLogicRecDP: {'data_loader': <data_loaders.DataLoader.DataLoader object at 0x7fe0b9fabd30>, 'drop_first': 1, 'max_his': 10, 'rank': 1, 'sample_un_p': 1.0, 'shuffle_his': 0, 'sparse_his': 0, 'sup_his': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...

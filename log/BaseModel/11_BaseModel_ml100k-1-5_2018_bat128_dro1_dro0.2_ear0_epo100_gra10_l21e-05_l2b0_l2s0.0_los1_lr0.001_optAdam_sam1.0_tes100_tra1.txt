@@ -1,0 +1,27 @@
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'BaseModel', 'runner_name': 'BaseRunner', 'data_processor': 'DataProcessor'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/BaseModel/11_BaseModel_ml100k-1-5_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l21e-05_l2b0_l2s0.0_los1_lr0.001_optAdam_sam1.0_tes100_tra1.txt', 'result_file': '../result/BaseModel/11_BaseModel_ml100k-1-5_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l21e-05_l2b0_l2s0.0_los1_lr0.001_optAdam_sam1.0_tes100_tra1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'loss_sum': 1, 'model_path': '../model/BaseModel/11_BaseModel_ml100k-1-5_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l21e-05_l2b0_l2s0.0_los1_lr0.001_optAdam_sam1.0_tes100_tra1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 1e-05, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'RMSE', 'pre_gpu': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:[]
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: BaseModel
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: DataProcessor
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'BaseModel', 'runner_name': 'BaseRunner', 'data_processor': 'DataProcessor'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/BaseModel/11_BaseModel_ml100k-1-5_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l21e-05_l2b0_l2s0.0_los1_lr0.001_optAdam_sam1.0_tes100_tra1.txt', 'result_file': '../result/BaseModel/11_BaseModel_ml100k-1-5_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l21e-05_l2b0_l2s0.0_los1_lr0.001_optAdam_sam1.0_tes100_tra1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'loss_sum': 1, 'model_path': '../model/BaseModel/11_BaseModel_ml100k-1-5_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l21e-05_l2b0_l2s0.0_los1_lr0.001_optAdam_sam1.0_tes100_tra1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 1e-05, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'RMSE', 'pre_gpu': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:[]
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: BaseModel
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: DataProcessor
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:{'rank': 1, 'data_loader': 'DataLoader', 'model_name': 'BaseModel', 'runner_name': 'BaseRunner', 'data_processor': 'DataProcessor'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/BaseModel/11_BaseModel_ml100k-1-5_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l21e-05_l2b0_l2s0.0_los1_lr0.001_optAdam_sam1.0_tes100_tra1.txt', 'result_file': '../result/BaseModel/11_BaseModel_ml100k-1-5_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l21e-05_l2b0_l2s0.0_los1_lr0.001_optAdam_sam1.0_tes100_tra1.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'ml100k-1-5', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'loss_sum': 1, 'model_path': '../model/BaseModel/11_BaseModel_ml100k-1-5_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l21e-05_l2b0_l2s0.0_los1_lr0.001_optAdam_sam1.0_tes100_tra1.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 1e-05, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'RMSE', 'pre_gpu': 0, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:[]
+INFO:root:DataLoader: DataLoader
+INFO:root:Model: BaseModel
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: DataProcessor
+INFO:root:# cuda devices: 0
+INFO:root:DataLoader: {'dataset': 'ml100k-1-5', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}

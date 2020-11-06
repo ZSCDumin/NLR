@@ -1,0 +1,624 @@
+INFO:root:{'rank': 0, 'data_loader': 'ProLogicDL', 'model_name': 'NLR', 'runner_name': 'BaseRunner', 'data_processor': 'ProLogicDP'}
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/NLR/01_NLR_logic10k-30k-15-15_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l20.001_l2b0_l2s0.0_lay1_los1_lr0.001_optAdam_rle0.001_rlo0.1_sam1.0_shu1_shu1_sim0_sim10_tes100_tra1_vve64.txt', 'result_file': '../result/NLR/01_NLR_logic10k-30k-15-15_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l20.001_l2b0_l2s0.0_lay1_los1_lr0.001_optAdam_rle0.001_rlo0.1_sam1.0_shu1_shu1_sim0_sim10_tes100_tra1_vve64.npy', 'random_seed': 2018, 'train': 1, 'path': '../dataset/', 'dataset': 'logic10k_30k-15-15', 'sep': '\t', 'seq_sep': ',', 'label': 'label', 'drop_neg': 1, 'v_vector_size': 64, 'r_logic': 0.1, 'r_length': 0.001, 'sim_scale': 10, 'sim_alpha': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLR/01_NLR_logic10k-30k-15-15_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l20.001_l2b0_l2s0.0_lay1_los1_lr0.001_optAdam_rle0.001_rlo0.1_sam1.0_shu1_shu1_sim0_sim10_tes100_tra1_vve64.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'early_stop': 0, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 16384, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.001, 'l2s': 0.0, 'grad_clip': 10, 'optimizer': 'Adam', 'metrics': 'accuracy,rmse', 'pre_gpu': 0, 'shuffle_or': 1, 'shuffle_and': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'sample_un_p': 1.0, 'unlabel_test': 0}
+INFO:root:['--rank', '0', '--model_name', 'NLR']
+INFO:root:DataLoader: ProLogicDL
+INFO:root:Model: NLR
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: ProLogicDP
+INFO:root:# cuda devices: 0
+INFO:root:ProLogicDL: {'dataset': 'logic10k_30k-15-15', 'label': 'label', 'load_data': True, 'path': '../dataset/', 'sep': '\t', 'seq_sep': ','}
+INFO:root:load train csv...
+INFO:root:size of train: 24000
+INFO:root:train label: {0: 13216, 1: 10784}
+INFO:root:load validation csv...
+INFO:root:size of validation: 3000
+INFO:root:validation label: {0: 1650, 1: 1350}
+INFO:root:load test csv...
+INFO:root:size of test: 3000
+INFO:root:test label: {0: 1577, 1: 1423}
+INFO:root:label: 0-1
+INFO:root:# of users: 0
+INFO:root:# of items: 0
+INFO:root:# of user features: 0
+INFO:root:# of item features: 0
+INFO:root:# of context features: 0
+INFO:root:# of features: 0
+INFO:root:# of variables: 10001
+INFO:root:Save dataset info to ../dataset/logic10k_30k-15-15/logic10k_30k-15-15.info.json
+INFO:root:ProLogicDP: {'data_loader': <data_loaders.ProLogicDL.ProLogicDL object at 0x7fc372ef6cc0>, 'rank': 0, 'sample_un_p': 1.0, 'shuffle_and': 1, 'shuffle_or': 1, 'test_sample_n': 100, 'train_sample_n': 1, 'unlabel_test': 0}
+INFO:root:Prepare Train Data...
+INFO:root:Prepare Validation Data...
+INFO:root:Prepare Test Data...
+INFO:root:Model # of features 0
+INFO:root:Model # of feature dims 0
+INFO:root:NLR: {'feature_num': 0, 'l2_bias': 0, 'label_max': 1, 'label_min': 0, 'layers': 1, 'loss_sum': 1, 'model_path': '../model/NLR/01_NLR_logic10k-30k-15-15_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l20.001_l2b0_l2s0.0_lay1_los1_lr0.001_optAdam_rle0.001_rlo0.1_sam1.0_shu1_shu1_sim0_sim10_tes100_tra1_vve64.pt', 'r_length': 0.001, 'r_logic': 0.1, 'random_seed': 2018, 'sim_alpha': 0, 'sim_scale': 10, 'v_vector_size': 64, 'variable_num': 10001}
+INFO:root:# of params: 702145
+INFO:root:BaseRunner: {'batch_size': 128, 'check_epoch': 1, 'dropout': 0.2, 'early_stop': 0, 'epoch': 100, 'eval_batch_size': 16384, 'grad_clip': 10, 'l2': 0.001, 'l2_bias': 0, 'l2s': 0.0, 'lr': 0.001, 'metrics': 'accuracy,rmse', 'optimizer': 'Adam', 'pre_gpu': 0}
+INFO:root:Test Before Training: train= 0.5699,0.6335 validation= 0.5677,0.6358 test= 0.5900,0.6180 accuracy,rmse
+INFO:root:Init: 	 train= 0.5699,0.6335 validation= 0.5677,0.6358 test= 0.5900,0.6180 [4.2 s] accuracy,rmse
+INFO:root:Optimizer: Adam
+INFO:root:
+
+INFO:root:prediction	(64,)
+[0.45118305 0.40741765 0.5699658  ... 0.11989286 0.5813722  0.9967444 ]
+
+INFO:root:label	(64,)
+[1. 0. 0. ... 0. 0. 1.]
+
+INFO:root:true	(1, 64)
+[[0.8823493  0.10432774 0.90700936 ... 0.49269143 0.23640703 0.5314154 ]]
+
+INFO:root:r_length	()
+341.2273
+
+INFO:root:r_not_true	()
+0.0987756
+
+INFO:root:r_not_self	()
+12.019758
+
+INFO:root:r_not_not_self	()
+2.774053
+
+INFO:root:r_and_true	()
+4.831183
+
+INFO:root:r_and_false	()
+0.41639608
+
+INFO:root:r_and_self	()
+5.0766945
+
+INFO:root:r_and_not_self	()
+0.2964118
+
+INFO:root:r_or_true	()
+0.07157826
+
+INFO:root:r_or_false	()
+1.1882744
+
+INFO:root:r_or_self	()
+0.75548077
+
+INFO:root:r_or_not_self	()
+0.8852034
+
+INFO:root:r_loss	()
+3.1826084
+
+INFO:root:mean loss = 190.5725, l2 = 0.0195, 0.0000
+INFO:root:Epoch     1 [71.4 s]	 train= 190.5725,0.4701 validation= 0.7083,0.4475 test= 0.7100,0.4432 [0.8 s] accuracy,rmse
+INFO:root:Save model to ../model/NLR/01_NLR_logic10k-30k-15-15_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l20.001_l2b0_l2s0.0_lay1_los1_lr0.001_optAdam_rle0.001_rlo0.1_sam1.0_shu1_shu1_sim0_sim10_tes100_tra1_vve64.pt
+INFO:root:
+
+INFO:root:prediction	(64,)
+[0.9164936  0.00376961 0.0827893  ... 0.64599776 0.6730579  0.00452371]
+
+INFO:root:label	(64,)
+[1. 0. 0. ... 1. 1. 0.]
+
+INFO:root:true	(1, 64)
+[[0.8823493  0.10432774 0.90700936 ... 0.49269143 0.23640703 0.5314154 ]]
+
+INFO:root:r_length	()
+293.09222
+
+INFO:root:r_not_true	()
+0.0108625
+
+INFO:root:r_not_self	()
+1.950323
+
+INFO:root:r_not_not_self	()
+1.7368501
+
+INFO:root:r_and_true	()
+0.5832025
+
+INFO:root:r_and_false	()
+0.11848056
+
+INFO:root:r_and_self	()
+1.4252682
+
+INFO:root:r_and_not_self	()
+0.22913563
+
+INFO:root:r_or_true	()
+0.19899821
+
+INFO:root:r_or_false	()
+0.77330875
+
+INFO:root:r_or_self	()
+0.73646116
+
+INFO:root:r_or_not_self	()
+1.2474525
+
+INFO:root:r_loss	()
+1.1941266
+
+INFO:root:mean loss = 57.5577, l2 = 0.0373, 0.0000
+INFO:root:Epoch     2 [79.8 s]	 train= 57.5577,0.3695 validation= 0.8463,0.3257 test= 0.8330,0.3377 [0.9 s] accuracy,rmse
+INFO:root:Save model to ../model/NLR/01_NLR_logic10k-30k-15-15_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l20.001_l2b0_l2s0.0_lay1_los1_lr0.001_optAdam_rle0.001_rlo0.1_sam1.0_shu1_shu1_sim0_sim10_tes100_tra1_vve64.pt
+INFO:root:
+
+INFO:root:prediction	(64,)
+[0.06258415 0.01023432 0.01290836 ... 0.00624388 0.01590373 0.99412584]
+
+INFO:root:label	(64,)
+[0. 0. 0. ... 0. 0. 1.]
+
+INFO:root:true	(1, 64)
+[[0.8823493  0.10432774 0.90700936 ... 0.49269143 0.23640703 0.5314154 ]]
+
+INFO:root:r_length	()
+316.82043
+
+INFO:root:r_not_true	()
+0.00560912
+
+INFO:root:r_not_self	()
+0.6859848
+
+INFO:root:r_not_not_self	()
+0.37185496
+
+INFO:root:r_and_true	()
+0.29283774
+
+INFO:root:r_and_false	()
+0.11766791
+
+INFO:root:r_and_self	()
+0.98852956
+
+INFO:root:r_and_not_self	()
+0.18421727
+
+INFO:root:r_or_true	()
+0.13726163
+
+INFO:root:r_or_false	()
+0.3610201
+
+INFO:root:r_or_self	()
+0.40184915
+
+INFO:root:r_or_not_self	()
+0.4241606
+
+INFO:root:r_loss	()
+0.7139197
+
+INFO:root:mean loss = 20.5664, l2 = 0.0478, 0.0000
+INFO:root:Epoch     3 [76.1 s]	 train= 20.5664,0.2013 validation= 0.9217,0.2454 test= 0.9217,0.2472 [0.9 s] accuracy,rmse
+INFO:root:Save model to ../model/NLR/01_NLR_logic10k-30k-15-15_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l20.001_l2b0_l2s0.0_lay1_los1_lr0.001_optAdam_rle0.001_rlo0.1_sam1.0_shu1_shu1_sim0_sim10_tes100_tra1_vve64.pt
+INFO:root:
+
+INFO:root:prediction	(64,)
+[0.99983144 0.9998735  0.00947856 ... 0.9998066  0.00468812 0.00691988]
+
+INFO:root:label	(64,)
+[1. 1. 0. ... 1. 0. 0.]
+
+INFO:root:true	(1, 64)
+[[0.8823493  0.10432774 0.90700936 ... 0.49269143 0.23640703 0.5314154 ]]
+
+INFO:root:r_length	()
+350.47116
+
+INFO:root:r_not_true	()
+0.00356052
+
+INFO:root:r_not_self	()
+0.34327245
+
+INFO:root:r_not_not_self	()
+0.27461535
+
+INFO:root:r_and_true	()
+0.21692097
+
+INFO:root:r_and_false	()
+0.12318647
+
+INFO:root:r_and_self	()
+0.46919638
+
+INFO:root:r_and_not_self	()
+0.16026461
+
+INFO:root:r_or_true	()
+0.1051296
+
+INFO:root:r_or_false	()
+0.34491932
+
+INFO:root:r_or_self	()
+0.40039468
+
+INFO:root:r_or_not_self	()
+0.1925152
+
+INFO:root:r_loss	()
+0.6138687
+
+INFO:root:mean loss = 7.2631, l2 = 0.0515, 0.0000
+INFO:root:Epoch     4 [77.3 s]	 train= 7.2631,0.1074 validation= 0.9387,0.2264 test= 0.9403,0.2232 [1.0 s] accuracy,rmse
+INFO:root:Save model to ../model/NLR/01_NLR_logic10k-30k-15-15_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l20.001_l2b0_l2s0.0_lay1_los1_lr0.001_optAdam_rle0.001_rlo0.1_sam1.0_shu1_shu1_sim0_sim10_tes100_tra1_vve64.pt
+INFO:root:
+
+INFO:root:prediction	(64,)
+[4.5743689e-02 4.1669123e-02 9.9890661e-01 ... 9.6061605e-04 9.8910753e-04
+ 9.9908495e-01]
+
+INFO:root:label	(64,)
+[0. 0. 1. ... 0. 0. 1.]
+
+INFO:root:true	(1, 64)
+[[0.8823493  0.10432774 0.90700936 ... 0.49269143 0.23640703 0.5314154 ]]
+
+INFO:root:r_length	()
+330.5415
+
+INFO:root:r_not_true	()
+0.00237843
+
+INFO:root:r_not_self	()
+0.31535593
+
+INFO:root:r_not_not_self	()
+0.19306713
+
+INFO:root:r_and_true	()
+0.20138115
+
+INFO:root:r_and_false	()
+0.07662857
+
+INFO:root:r_and_self	()
+0.28701043
+
+INFO:root:r_and_not_self	()
+0.09123588
+
+INFO:root:r_or_true	()
+0.07528305
+
+INFO:root:r_or_false	()
+0.3032493
+
+INFO:root:r_or_self	()
+0.36481464
+
+INFO:root:r_or_not_self	()
+0.14660037
+
+INFO:root:r_loss	()
+0.536242
+
+INFO:root:mean loss = 3.9623, l2 = 0.0546, 0.0000
+INFO:root:Epoch     5 [75.9 s]	 train= 3.9623,0.0719 validation= 0.9430,0.2275 test= 0.9413,0.2298 [1.1 s] accuracy,rmse
+INFO:root:Save model to ../model/NLR/01_NLR_logic10k-30k-15-15_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l20.001_l2b0_l2s0.0_lay1_los1_lr0.001_optAdam_rle0.001_rlo0.1_sam1.0_shu1_shu1_sim0_sim10_tes100_tra1_vve64.pt
+INFO:root:
+
+INFO:root:prediction	(64,)
+[9.9984765e-01 7.6216791e-04 1.1317149e-03 ... 8.6163345e-04 1.8738965e-03
+ 9.9989045e-01]
+
+INFO:root:label	(64,)
+[1. 0. 0. ... 0. 0. 1.]
+
+INFO:root:true	(1, 64)
+[[0.8823493  0.10432774 0.90700936 ... 0.49269143 0.23640703 0.5314154 ]]
+
+INFO:root:r_length	()
+297.6223
+
+INFO:root:r_not_true	()
+0.00210086
+
+INFO:root:r_not_self	()
+0.24753287
+
+INFO:root:r_not_not_self	()
+0.18464857
+
+INFO:root:r_and_true	()
+0.20109326
+
+INFO:root:r_and_false	()
+0.09405982
+
+INFO:root:r_and_self	()
+0.28635174
+
+INFO:root:r_and_not_self	()
+0.09731209
+
+INFO:root:r_or_true	()
+0.06220353
+
+INFO:root:r_or_false	()
+0.1957342
+
+INFO:root:r_or_self	()
+0.26699746
+
+INFO:root:r_or_not_self	()
+0.12303418
+
+INFO:root:r_loss	()
+0.4737292
+
+INFO:root:mean loss = 2.4948, l2 = 0.0578, 0.0000
+INFO:root:Epoch     6 [75.1 s]	 train= 2.4948,0.0484 validation= 0.9483,0.2190 test= 0.9467,0.2203 [1.2 s] accuracy,rmse
+INFO:root:Save model to ../model/NLR/01_NLR_logic10k-30k-15-15_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l20.001_l2b0_l2s0.0_lay1_los1_lr0.001_optAdam_rle0.001_rlo0.1_sam1.0_shu1_shu1_sim0_sim10_tes100_tra1_vve64.pt
+INFO:root:
+
+INFO:root:prediction	(64,)
+[2.3609407e-03 9.9992013e-01 9.9953699e-01 ... 9.9979538e-01 9.9991179e-01
+ 8.2187750e-04]
+
+INFO:root:label	(64,)
+[0. 1. 1. ... 1. 1. 0.]
+
+INFO:root:true	(1, 64)
+[[0.8823493  0.10432774 0.90700936 ... 0.49269143 0.23640703 0.5314154 ]]
+
+INFO:root:r_length	()
+297.38773
+
+INFO:root:r_not_true	()
+0.00146581
+
+INFO:root:r_not_self	()
+0.21338779
+
+INFO:root:r_not_not_self	()
+0.18611062
+
+INFO:root:r_and_true	()
+0.20949125
+
+INFO:root:r_and_false	()
+0.09339142
+
+INFO:root:r_and_self	()
+0.26650178
+
+INFO:root:r_and_not_self	()
+0.13811892
+
+INFO:root:r_or_true	()
+0.0619204
+
+INFO:root:r_or_false	()
+0.21962601
+
+INFO:root:r_or_self	()
+0.2355569
+
+INFO:root:r_or_not_self	()
+0.15804023
+
+INFO:root:r_loss	()
+0.47574884
+
+INFO:root:mean loss = 2.1046, l2 = 0.0587, 0.0000
+INFO:root:Epoch     7 [76.0 s]	 train= 2.1046,0.0428 validation= 0.9393,0.2336 test= 0.9393,0.2313 [1.4 s] accuracy,rmse
+INFO:root:
+
+INFO:root:prediction	(64,)
+[0.00199516 0.00038243 0.00174313 ... 0.00133839 0.00075917 0.00051563]
+
+INFO:root:label	(64,)
+[0. 0. 0. ... 0. 0. 0.]
+
+INFO:root:true	(1, 64)
+[[0.8823493  0.10432774 0.90700936 ... 0.49269143 0.23640703 0.5314154 ]]
+
+INFO:root:r_length	()
+273.55875
+
+INFO:root:r_not_true	()
+0.00145672
+
+INFO:root:r_not_self	()
+0.19277251
+
+INFO:root:r_not_not_self	()
+0.14647102
+
+INFO:root:r_and_true	()
+0.1429671
+
+INFO:root:r_and_false	()
+0.08021939
+
+INFO:root:r_and_self	()
+0.29211944
+
+INFO:root:r_and_not_self	()
+0.08913302
+
+INFO:root:r_or_true	()
+0.05278933
+
+INFO:root:r_or_false	()
+0.19296145
+
+INFO:root:r_or_self	()
+0.2106623
+
+INFO:root:r_or_not_self	()
+0.09623849
+
+INFO:root:r_loss	()
+0.42333788
+
+INFO:root:mean loss = 1.9269, l2 = 0.0604, 0.0000
+INFO:root:Epoch     8 [101.4 s]	 train= 1.9269,0.0393 validation= 0.9470,0.2209 test= 0.9513,0.2167 [2.0 s] accuracy,rmse
+INFO:root:
+
+INFO:root:prediction	(64,)
+[9.9992001e-01 9.9930632e-01 8.6822372e-04 ... 9.9993229e-01 9.9983406e-01
+ 6.0344907e-04]
+
+INFO:root:label	(64,)
+[1. 1. 0. ... 1. 1. 0.]
+
+INFO:root:true	(1, 64)
+[[0.8823493  0.10432774 0.90700936 ... 0.49269143 0.23640703 0.5314154 ]]
+
+INFO:root:r_length	()
+273.32346
+
+INFO:root:r_not_true	()
+0.00138664
+
+INFO:root:r_not_self	()
+0.18136068
+
+INFO:root:r_not_not_self	()
+0.18790853
+
+INFO:root:r_and_true	()
+0.14907712
+
+INFO:root:r_and_false	()
+0.06468344
+
+INFO:root:r_and_self	()
+0.21216011
+
+INFO:root:r_and_not_self	()
+0.28922993
+
+INFO:root:r_or_true	()
+0.05397809
+
+INFO:root:r_or_false	()
+0.1680876
+
+INFO:root:r_or_self	()
+0.16351008
+
+INFO:root:r_or_not_self	()
+0.10830462
+
+INFO:root:r_loss	()
+0.43129218
+
+INFO:root:mean loss = 1.7360, l2 = 0.0626, 0.0000
+INFO:root:Epoch     9 [168.0 s]	 train= 1.7360,0.0347 validation= 0.9447,0.2274 test= 0.9507,0.2176 [3.3 s] accuracy,rmse
+INFO:root:
+
+INFO:root:prediction	(64,)
+[2.8342387e-04 9.9989915e-01 9.8494303e-01 ... 9.9955267e-01 9.9988580e-01
+ 9.9983656e-01]
+
+INFO:root:label	(64,)
+[0. 1. 1. ... 1. 1. 1.]
+
+INFO:root:true	(1, 64)
+[[0.8823493  0.10432774 0.90700936 ... 0.49269143 0.23640703 0.5314154 ]]
+
+INFO:root:r_length	()
+267.83374
+
+INFO:root:r_not_true	()
+0.00118324
+
+INFO:root:r_not_self	()
+0.14570016
+
+INFO:root:r_not_not_self	()
+0.12971026
+
+INFO:root:r_and_true	()
+0.13026375
+
+INFO:root:r_and_false	()
+0.05723262
+
+INFO:root:r_and_self	()
+0.12152821
+
+INFO:root:r_and_not_self	()
+0.05670351
+
+INFO:root:r_or_true	()
+0.05126405
+
+INFO:root:r_or_false	()
+0.31204557
+
+INFO:root:r_or_self	()
+0.1374321
+
+INFO:root:r_or_not_self	()
+0.1115405
+
+INFO:root:r_loss	()
+0.39329416
+
+INFO:root:mean loss = 1.6629, l2 = 0.0640, 0.0000
+INFO:root:Epoch    10 [186.1 s]	 train= 1.6629,0.0319 validation= 0.9470,0.2244 test= 0.9477,0.2234 [3.0 s] accuracy,rmse
+INFO:root:
+
+INFO:root:prediction	(64,)
+[9.9967217e-01 9.9986267e-01 1.4360360e-03 ... 9.9912697e-01 3.1701999e-04
+ 1.1866237e-03]
+
+INFO:root:label	(64,)
+[1. 1. 0. ... 1. 0. 0.]
+
+INFO:root:true	(1, 64)
+[[0.8823493  0.10432774 0.90700936 ... 0.49269143 0.23640703 0.5314154 ]]
+
+INFO:root:r_length	()
+387.15216
+
+INFO:root:r_not_true	()
+0.0014348
+
+INFO:root:r_not_self	()
+0.26727587
+
+INFO:root:r_not_not_self	()
+0.11221892
+
+INFO:root:r_and_true	()
+0.14261705
+
+INFO:root:r_and_false	()
+0.07658124
+
+INFO:root:r_and_self	()
+0.1835286
+
+INFO:root:r_and_not_self	()
+0.08254957
+
+INFO:root:r_or_true	()
+0.05973494
+
+INFO:root:r_or_false	()
+0.18148184
+
+INFO:root:r_or_self	()
+0.15569073
+
+INFO:root:r_or_not_self	()
+0.11369658
+
+INFO:root:r_loss	()
+0.5248332
+
+INFO:root:mean loss = 1.8624, l2 = 0.0668, 0.0000
+INFO:root:Epoch    11 [180.6 s]	 train= 1.8624,0.0357 validation= 0.9503,0.2187 test= 0.9463,0.2271 [3.7 s] accuracy,rmse
+INFO:root:Save model to ../model/NLR/01_NLR_logic10k-30k-15-15_2018_bat128_dro1_dro0.2_ear0_epo100_gra10_l20.001_l2b0_l2s0.0_lay1_los1_lr0.001_optAdam_rle0.001_rlo0.1_sam1.0_shu1_shu1_sim0_sim10_tes100_tra1_vve64.pt
