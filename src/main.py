@@ -128,13 +128,15 @@ def main():
     init_parser.add_argument('--rank', type=int, default=1,
                              help='1=ranking, 0=rating/click')
     init_parser.add_argument('--data_loader', type=str, default='',
-                             help='Choose data_loader')
-    init_parser.add_argument('--model_name', type=str, default='BaseModel',
-                             help='Choose model to run.')
+                             help='数据加载器')
+    init_parser.add_argument('--model_name', type=str, default='NLRRec',
+                             help='模型名')
     init_parser.add_argument('--runner_name', type=str, default='',
-                             help='Choose runner')
+                             help='运行器')
     init_parser.add_argument('--data_processor', type=str, default='',
-                             help='Choose runner')
+                             help='数据处理')
+
+
     init_args, init_extras = init_parser.parse_known_args()
 
     # choose model
@@ -341,8 +343,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-    
-    
-    
-    

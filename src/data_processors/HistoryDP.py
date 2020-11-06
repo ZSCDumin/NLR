@@ -114,7 +114,7 @@ class HistoryDP(DataProcessor):
             his_cs.append(C_HISTORY_NEG)
         if self.drop_first == 1:
             for c in his_cs:
-                df = df[df[c].apply(lambda x: len(x) > 0)]
+                df = df[df[c].apply(lambda x: len(x) > 0)]  # 删除history长度为0的行
         data_dict = DataProcessor.format_data_dict(self, df, model)
 
         for c in his_cs:

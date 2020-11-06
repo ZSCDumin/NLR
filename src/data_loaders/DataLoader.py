@@ -212,7 +212,6 @@ class DataLoader(object):
         def build_his(his_df, seqs_sep):
             uids = his_df[UID].tolist()
             iids = his_df[IIDS].astype(str).str.split(seqs_sep).values
-            # iids = [i.split(self.seq_sep) for i in his_df['iids'].tolist()]
             iids = [[int(j) for j in i] for i in iids]
             user_his = dict(zip(uids, iids))
             return user_his
